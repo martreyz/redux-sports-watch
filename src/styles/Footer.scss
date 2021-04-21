@@ -1,0 +1,92 @@
+
+.footer {
+  position: fixed;
+  display: flex;
+  height: 50px;
+  width: 98%;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0px;
+  border-top: #01254d 1px solid;
+}
+
+.footer__menuList {
+  display: flex;
+  padding: 0px;
+}
+.footer__menuList-github {
+  background-image: url("../images/github-alt-brands.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  transition: all ease 1s;
+}
+.footer__menuList-linkedin {
+  background-image: url("../images/linkedin-in-brands.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  transition: all ease 1s;
+}
+.footer__menuList-mail {
+  background-image: url("../images/envelope-solid.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  transition: all ease 1s;
+}
+.footer__menuList-twitter {
+  background-image: url("../images/twitter-brands.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  transition: all ease 1s;
+}
+.footer__menuList-codepen {
+  background-image: url("../images/codepen-brands.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  transition: all ease 1s;
+}
+.footer__menuList-access {
+  padding: 10px;
+  text-decoration: none;
+}
+
+.footer__small {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  display: flex;
+  color: #01254d;
+  &Author{
+      color: #01254d;
+  }
+}
+
+.footer__smallLogo {
+  background-image: url("../images/cat.svg");
+  background-repeat: no-repeat;
+  text-decoration: none;
+  list-style-type: none;
+  width: 17px;
+  height: 17px;
+  margin-right: 8px;
+  margin-left: 8px;
+  transition: all ease 1s;
+}
