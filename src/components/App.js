@@ -1,9 +1,7 @@
 import "../styles/App.css";
-import Starter from "./Starter";
 import Watch from "./Watch";
 import Laps from "./Laps";
 import Footer from "./Footer";
-import { Link, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   increment,
@@ -60,30 +58,23 @@ function App(props) {
   return (
     <div className="App">
       <main className="main">
-        <Route exact path="/">
-          <Link className="starter_link" to="/stopwatch">
-            <Starter />
-          </Link>
-        </Route>
-        <Route exact path="/stopwatch">
-          <Watch
-            counterMilSec={counterMilSec}
-            counterSec={counterSec}
-            counterMin={counterMin}
-            dispatchActionAddLap={dispatchActionAddLap}
-            dispatchRestart={dispatchRestart}
-            dispatchAction={dispatchAction}
-            dispatchActionSecs={dispatchActionSecs}
-            dispatchActionMins={dispatchActionMins}
-            dispatchRunning={dispatchRunning}
-            dispatchTimeout={dispatchTimeout}
-            timeouts={timeouts}
-          />
-          <Laps
-            ManageLaps={ManageLaps}
-            dispatchActionRemoveLap={dispatchActionRemoveLap}
-          />
-        </Route>
+        <Watch
+          counterMilSec={counterMilSec}
+          counterSec={counterSec}
+          counterMin={counterMin}
+          dispatchActionAddLap={dispatchActionAddLap}
+          dispatchRestart={dispatchRestart}
+          dispatchAction={dispatchAction}
+          dispatchActionSecs={dispatchActionSecs}
+          dispatchActionMins={dispatchActionMins}
+          dispatchRunning={dispatchRunning}
+          dispatchTimeout={dispatchTimeout}
+          timeouts={timeouts}
+        />
+        <Laps
+          ManageLaps={ManageLaps}
+          dispatchActionRemoveLap={dispatchActionRemoveLap}
+        />
       </main>
       <Footer />
     </div>

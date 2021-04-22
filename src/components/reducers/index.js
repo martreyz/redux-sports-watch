@@ -14,3 +14,16 @@ const allReducers = combineReducers({
 });
 
 export default allReducers;
+
+// import { connectRouter } from "connected-react-router";
+
+// const allReducers = (history) =>
+//   combineReducers({
+//     router: connectRouter(history),
+//     counterMilSec,
+//     counterMin,
+//     counterSec,
+//     ManageLaps,
+//     timeout,
+//   });
+// export default allReducers;
