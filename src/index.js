@@ -7,14 +7,19 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import allReducers from "./components/reducers";
 import { Provider } from "react-redux";
+import { connectRouter } from "connected-react-router";
+import createHistory from "history/createBrowserHistory";
+export const history = createHistory();
 
-let myStore = createStore(
-  allReducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// let myStore = createStore(
+//   allReducers,
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
+
+const store = createStore(connectRouter(history)(allReducers));
 
 ReactDOM.render(
-  <Provider store={myStore}>
+  <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
         <App />
