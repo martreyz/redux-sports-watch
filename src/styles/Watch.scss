@@ -10,6 +10,7 @@
   border: 2px solid #8fb5b5;
   padding: 30px;
   position: relative;
+  width: 100%;
   &_toggle {
     border: none;
     border-radius: 15px;
@@ -34,6 +35,17 @@
     }
   }
 
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   &_counter {
     color: #01254d;
     width: 150px;
@@ -41,25 +53,71 @@
     padding: 20px;
     border-radius: 50%;
     background-color: white;
-    border: dotted 2px #c4142c;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     outline: none;
     transition: all ease 1s;
-    margin-bottom: 20px;
     position: relative;
+    &Decoration {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      border-radius: 50%;
+      animation: rotate 1.2s linear infinite;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        top: -10px;
+      }
+    }
+
     &Detail {
       font-size: 30px;
       font-family: "VT323", monospace;
+      width: 150px;
+      height: 150px;
+      border: dotted 2px #c4142c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 50%;
+      position: absolute;
+      margin: 0px;
+      top: 0px;
+      left: 0px;
+      &Stop {
+        font-size: 30px;
+        font-family: "VT323", monospace;
+        font-weight: bold;
+        position: absolute;
+        color: #01254d;
+        top: 0px;
+        left: 0px;
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: white;
+        border: dotted 2px #c4142c;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        transition: all ease 1s;
+      }
     }
   }
   &_lap {
     text-transform: uppercase;
     font-family: "VT323", monospace;
     position: absolute;
-    font-size: 15px;
+    font-size: 13px;
     transition: all ease 1s;
     left: -40%;
     width: 40px;
@@ -86,7 +144,7 @@
     text-transform: uppercase;
     font-family: "VT323", monospace;
     position: absolute;
-    font-size: 15px;
+    font-size: 13px;
     color: white;
     transition: all ease 1s;
     right: -40%;

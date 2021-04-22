@@ -1,16 +1,20 @@
 //REDUCER COUNTER
 
-const counterMin = (stateMins = 0, action) => {
+const counterMin = (state = 0, action) => {
   switch (action.type) {
     case "MININC":
-      if (stateMins < 59) {
-        return stateMins + 1;
+      if (state < 59) {
+        return state + 1;
       } else {
-        return (stateMins = 0);
+        return (state = 0);
       }
+    case "RESTART":
+      return (state = 0);
 
+    case "STOP":
+      return state + 0;
     default:
-      return stateMins;
+      return state;
   }
 };
 

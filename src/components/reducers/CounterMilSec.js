@@ -1,17 +1,21 @@
 //REDUCER COUNTER
 
-const counterMilSec = (stateMilSec = 0, action) => {
+const counterMilSec = (state = 0, action) => {
   switch (action.type) {
     case "INCREMENT":
-      if (stateMilSec < 99) {
-        return stateMilSec + 1;
+      if (state < 99) {
+        return state + 1;
       } else {
-        return (stateMilSec = 0);
+        return (state = 0);
       }
     case "DECREMENT":
-      return stateMilSec - 1;
+      return state - 1;
+    case "STOP":
+      return state + 0;
+    case "RESTART":
+      return (state = 0);
     default:
-      return stateMilSec;
+      return state;
   }
 };
 

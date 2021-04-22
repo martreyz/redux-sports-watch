@@ -4,21 +4,31 @@ import Watch from "./Watch";
 import Laps from "./Laps";
 import Footer from "./Footer";
 import { Link, Route } from "react-router-dom";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   increment,
   incrementSecs,
   incrementMins,
-  stopCounter,
+  addLap,
+  removeLap,
+  restart,
+  running,
+  addTimeouts,
 } from "./actions";
 
 function App(props) {
   const counterMin = useSelector((state) => state.counterMin);
   const counterSec = useSelector((state) => state.counterSec);
   const counterMilSec = useSelector((state) => state.counterMilSec);
-  const counterStoper = useSelector((state) => state.Stoper);
+  const ManageLaps = useSelector((state) => state.ManageLaps);
+  const timeouts = useSelector((state) => state.timeout);
 
   const dispatch = useDispatch();
+
+  const dispatchTimeout = (timeout) => {
+    dispatch(addTimeouts(timeout));
+  };
 
   const dispatchAction = () => {
     dispatch(increment());
@@ -32,8 +42,20 @@ function App(props) {
     dispatch(incrementMins());
   };
 
-  const dispatchStoper = () => {
-    dispatch(stopCounter());
+  const dispatchActionAddLap = (time) => {
+    dispatch(addLap(time));
+  };
+
+  const dispatchActionRemoveLap = (id) => {
+    dispatch(removeLap(id));
+  };
+
+  const dispatchRestart = () => {
+    dispatch(restart());
+  };
+
+  const dispatchRunning = () => {
+    dispatch(running());
   };
 
   return (
@@ -41,12 +63,7 @@ function App(props) {
       <main className="main">
         <Route exact path="/">
           <Link className="starter_link" to="/stopwatch">
-            <Starter
-              dispatchAction={dispatchAction}
-              dispatchActionMins={dispatchActionMins}
-              dispatchActionSecs={dispatchActionSecs}
-              counterStoper={counterStoper}
-            />
+            <Starter />
           </Link>
         </Route>
         <Route exact path="/stopwatch">
@@ -54,9 +71,19 @@ function App(props) {
             counterMilSec={counterMilSec}
             counterSec={counterSec}
             counterMin={counterMin}
-            dispatchStoper={dispatchStoper}
+            dispatchActionAddLap={dispatchActionAddLap}
+            dispatchRestart={dispatchRestart}
+            dispatchAction={dispatchAction}
+            dispatchActionSecs={dispatchActionSecs}
+            dispatchActionMins={dispatchActionMins}
+            dispatchRunning={dispatchRunning}
+            dispatchTimeout={dispatchTimeout}
+            timeouts={timeouts}
           />
-          <Laps />
+          <Laps
+            ManageLaps={ManageLaps}
+            dispatchActionRemoveLap={dispatchActionRemoveLap}
+          />
         </Route>
       </main>
       <Footer />

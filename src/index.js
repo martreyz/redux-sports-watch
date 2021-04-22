@@ -8,13 +8,13 @@ import { createStore } from "redux";
 import allReducers from "./components/reducers";
 import { Provider } from "react-redux";
 
-let store = createStore(
+let myStore = createStore(
   allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={myStore}>
     <BrowserRouter>
       <React.StrictMode>
         <App />
